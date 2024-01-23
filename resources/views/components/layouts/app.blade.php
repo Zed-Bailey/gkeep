@@ -11,14 +11,19 @@
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>
     <body class="bg-slate-100">
-            {{-- TODO: move to root layout --}}
+        
         <nav class="flex justify-between p-2">
             <h1 class="text-xl font-bold">gKeep</h1>
-
+            @guest
             <div class="space-x-2">
-                <button class="border-2 border-slate-900 rounded-md px-2 bg-yellow-200 hover:bg-yellow-400 hover:font-bold">Login</button>
-                <button class="border-2 border-slate-900 rounded-md px-2 bg-pink-200 hover:bg-pink-400 hover:font-bold">Sign up</button>
+                <a href="/login" class="border-2 border-slate-900 rounded-md px-2 py-1 bg-yellow-200 hover:bg-yellow-400 hover:font-bold">Login</a>
+                <a href="/register" class="border-2 border-slate-900 rounded-md px-2 py-1 bg-pink-200 hover:bg-pink-400 hover:font-bold">Sign up</a>
             </div>
+            @else
+            <div class="space-x-2">
+                <a href="/logout" class="border-2 border-slate-900 rounded-md px-2 py-1 bg-blue-200 hover:bg-blue-400 hover:font-bold">Logout</a>
+            </div>
+            @endguest
             
         </nav>
         
