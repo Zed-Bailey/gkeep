@@ -6,7 +6,11 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        "solid-sm" : "2px 3px 0px 0px rgba(16,11,51)",
+      }
+    },
   },
   plugins: [],
 }
