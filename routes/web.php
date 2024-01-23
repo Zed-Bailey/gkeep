@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Note;
 use App\Livewire\Notes;
+use App\Livewire\EditNote;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +20,4 @@ use App\Livewire\Notes;
 // });
 
 Route::get('/', Notes::class);
+Route::get('/{id}', EditNote::class);

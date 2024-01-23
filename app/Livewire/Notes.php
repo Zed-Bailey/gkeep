@@ -42,6 +42,10 @@ class Notes extends Component
         $note->delete();
     }
 
+    public function goToEdit($id) {
+        return $this->redirect("/$id", navigate: true);
+    }
+
     public function changedColour($newColour) {
         $this->selectedColour = "$newColour";
     }
