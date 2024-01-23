@@ -11,6 +11,21 @@
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>
     <body class="bg-slate-100">
-        {{ $slot }}
+            {{-- TODO: move to root layout --}}
+        <nav class="flex justify-between p-2">
+            <h1 class="text-xl font-bold">gKeep</h1>
+
+            <div class="space-x-2">
+                <button class="border-2 border-slate-900 rounded-md px-2 bg-yellow-200 hover:bg-yellow-400 hover:font-bold">Login</button>
+                <button class="border-2 border-slate-900 rounded-md px-2 bg-pink-200 hover:bg-pink-400 hover:font-bold">Sign up</button>
+            </div>
+            
+        </nav>
+        
+        <main class="p-2 w-full">
+            {{ $slot }}
+        </main>
+        
+
     </body>
 </html>

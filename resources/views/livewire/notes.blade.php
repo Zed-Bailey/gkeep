@@ -1,19 +1,5 @@
 
-<div>
-
-    {{-- TODO: move to root layout --}}
-<nav class="flex justify-between p-2">
-    <h1 class="text-xl font-bold">gKeep</h1>
-
-    <div class="space-x-2">
-        <button class="border-2 border-slate-900 rounded-md px-2 bg-yellow-200 hover:bg-yellow-400 hover:font-bold">Login</button>
-        <button class="border-2 border-slate-900 rounded-md px-2 bg-pink-200 hover:bg-pink-400 hover:font-bold">Sign up</button>
-    </div>
-    
-</nav>
-
-<main class="p-2 w-full">
-    
+<div>    
     <div>
         <h2 class="text-3xl">Create a new note</h2>
     </div>
@@ -51,7 +37,7 @@
         
             @foreach ($userNotes as $note)
             
-                <x-note-card :note="$note" x-on:delete-clicked="$wire.delete({{$note->id}})" />
+                <x-note-card :note="$note" x-on:delete-clicked="$wire.delete({{$note->id}})" x-on:click="$wire.goToEdit({{$note->id}})" />
 
             @endforeach
 
@@ -66,6 +52,4 @@
         </div>
     @endif
     
-
-</main>
 </div>
