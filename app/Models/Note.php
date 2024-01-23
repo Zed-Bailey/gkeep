@@ -10,7 +10,7 @@ class Note extends Model
     use HasFactory;
 
     public static $noteColours = [
-        'slate',
+        'white',
         'yellow',
         'pink',
         'red',

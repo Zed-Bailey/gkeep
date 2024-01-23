@@ -31,11 +31,15 @@ class Notes extends Component
         $note->title = $this->newNoteTitle;
         $note->body = $this->newNoteBody;
         $note->colour = $this->selectedColour;
-        
+
         $note->save();
 
         $this->newNoteTitle = '';
         $this->newNoteBody = '';
+    }
+
+    public function delete(Note $note) {
+        $note->delete();
     }
 
     public function changedColour($newColour) {

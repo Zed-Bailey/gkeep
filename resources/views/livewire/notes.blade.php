@@ -25,6 +25,11 @@
                 <textarea required class="w-full bg-transparent text-sm h-48 resize-none" wire:model="newNoteBody" placeholder="your note..."></textarea>
 
                 <div class="flex justify-evenly overflow-scroll mb-2">
+                    {{-- 
+                        required so tailwind will detect the classes
+                        bg-white-200 bg-yello-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
+                        
+                        --}}
                     @foreach ($colours as $col)
                         <button type="button" class="rounded-full h-5 w-5 bg-{{$col}}-200 border-2 border-slate-900" wire:click="changedColour('{{$col}}')"></button>    
                     @endforeach
@@ -46,7 +51,7 @@
         
             @foreach ($userNotes as $note)
             
-                <x-note-card :note="$note" />
+                <x-note-card :note="$note" x-on:delete-clicked="$wire.delete({{$note->id}})" />
 
             @endforeach
 
