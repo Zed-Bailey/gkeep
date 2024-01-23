@@ -13,7 +13,7 @@
                 <div class="flex justify-evenly overflow-scroll mb-2">
                     {{-- 
                         required so tailwind will detect the classes
-                        bg-white-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
+                        bg-slate-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
                         
                         --}}
                     @foreach ($colours as $col)
@@ -21,9 +21,10 @@
                     @endforeach
         
                 </div>
-                <button class="w-full py-2 hover:bg-slate-200 hover:font-bold rounded-md" type="submit">save</button>
+                <button class="w-full py-2 hover:bg-{{$col}}-300 hover:font-bold rounded-md" type="submit">save</button>
             </div>
         </form>
+
         
 
     </div>
@@ -47,7 +48,7 @@
         
         
     @else
-        <div class="flex justify-center">
+        <div class="flex justify-center mt-10">
             <p class="text-slate-500 text-xl italic">No notes yet....add one!</p>
         </div>
     @endif
