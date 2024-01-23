@@ -41,6 +41,11 @@ class EditNote extends Component
         return $this->navigate();
     }
 
+    public function changedColour($colour) {
+        $this->note->colour = $colour;
+        $this->note->save();
+    }
+    
     public function render()
     {
         return view('livewire.edit-note');

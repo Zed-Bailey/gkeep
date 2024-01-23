@@ -22,6 +22,21 @@
             <textarea wire:model="body" class="w-full h-full bg-transparent" placeholder="Note..."></textarea>
         </div>
 
+        @php
+            $colours = App\Models\Note::$noteColours;
+        @endphp
+        <div class="flex justify-evenly overflow-scroll my-2">
+            {{-- 
+                required so tailwind will detect the classes
+                bg-white-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
+                
+                --}}
+            @foreach ($colours as $col)
+                <button type="button" class="rounded-full h-5 w-5 bg-{{$col}}-200 border-2 border-slate-900" wire:click="changedColour('{{$col}}')"></button>    
+            @endforeach
+
+        </div>
+
         <div class="flex justify-evenly mt-4">
             <button class="flex gap-3 align-middle bg-red-100 text-red-500 hover:bg-red-200 p-2 rounded-md hover:outline hover:outline-2  hover:outline-red-500">
                 <x-phosphor-x-circle-duotone class="h-6 w-6"/>

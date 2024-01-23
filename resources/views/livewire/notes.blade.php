@@ -13,7 +13,7 @@
                 <div class="flex justify-evenly overflow-scroll mb-2">
                     {{-- 
                         required so tailwind will detect the classes
-                        bg-white-200 bg-yello-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
+                        bg-white-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
                         
                         --}}
                     @foreach ($colours as $col)
