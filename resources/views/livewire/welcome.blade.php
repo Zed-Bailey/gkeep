@@ -3,7 +3,7 @@
     <div class="flex flex-col mx-20">
         
             <div class="h-48">
-                <h1 class="text-6xl">A note taking app for</h1>
+                <h1 class="text-6xl font-light">A note taking app for</h1>
                 <x-typing-animation/>
             </div>
             <div class="flex justify-center gap-5 font-bold mt-10">

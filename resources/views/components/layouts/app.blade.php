@@ -12,16 +12,16 @@
     </head>
     <body class="bg-slate-100">
         
-        <nav class="flex justify-between p-2">
+        <nav class="flex justify-between px-4 py-4">
             <h1 class="text-xl font-bold">gKeep</h1>
             @guest
             <div class="space-x-2">
-                <a href="/login" class="border-2 border-slate-900 rounded-md px-2 py-1 bg-yellow-200 hover:bg-yellow-400 hover:font-bold">Login</a>
-                <a href="/register" class="border-2 border-slate-900 rounded-md px-2 py-1 bg-pink-200 hover:bg-pink-400 hover:font-bold">Sign up</a>
+                <a href="/login" class="border-2 border-yellow-400 text-yellow-900 rounded-md px-2 py-1 bg-yellow-200 hover:bg-yellow-400 ">Login</a>
+                <a href="/register" class="border-2 border-pink-400 text-pink-900 rounded-md px-2 py-1 bg-pink-200 hover:bg-pink-400">Sign up</a>
             </div>
             @else
             <div class="space-x-2">
-                <a href="/logout" class="border-2 border-slate-900 rounded-md px-2 py-1 bg-blue-200 hover:bg-blue-400 hover:font-bold">Logout</a>
+                <a href="/logout" class="border-2 border-blue-900 rounded-md px-2 py-1 bg-blue-200 hover:bg-blue-400 hover:font-bold">Logout</a>
             </div>
             @endguest
             
