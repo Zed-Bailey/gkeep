@@ -21,7 +21,7 @@
             </div>
             @else
             <div class="space-x-2">
-                <a href="/logout" class="border-2 border-blue-900 rounded-md px-2 py-1 bg-blue-200 hover:bg-blue-400 hover:font-bold">Logout</a>
+                <a href="/logout" class="border-2 border-blue-400 rounded-md px-2 py-1 bg-blue-200 hover:bg-blue-400">Logout</a>
             </div>
             @endguest
             

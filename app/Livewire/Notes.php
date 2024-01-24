@@ -12,10 +12,12 @@ class Notes extends Component
     public $newNoteTitle = '';
     public $newNoteBody = '';
 
+    public $user;
     
 
     public function mount() {
         $this->selectedColour =  Note::$noteColours[0];
+        $this->user = Auth::user();
     }
 
 
@@ -30,14 +32,14 @@ class Notes extends Component
     }
 
     public function saveClicked() {
-        $user = Auth::user();
+        
 
         $note = new Note;
         $note->title = $this->newNoteTitle;
         $note->body = $this->newNoteBody;
         $note->colour = $this->selectedColour;
 
-        $user->notes()->save($note);
+        $this->user->notes()->save($note);
 
         $this->newNoteTitle = '';
         $this->newNoteBody = '';
