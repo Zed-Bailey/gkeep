@@ -16,19 +16,20 @@
     <h1 class="text-3xl my-3">Edit Note</h1>
     <div class="flex-col items-center max-w-96">
         
-        <div class="w-96 min-h-72 p-2  bg-{{$note->colour}}-200 border-2 border-slate-900 rounded-md">
+        <div class="w-96  p-2  bg-{{$note->colour}}-200 border-2 border-slate-900 rounded-md">
             <input wire:model="title" placeholder="Title..." class="w-full bg-transparent"/>
+            <textarea class="w-full bg-transparent text-sm h-72 resize-none" wire:model="body" placeholder="your note..."></textarea>
             
-            <textarea wire:model="body" class="w-full h-full bg-transparent" placeholder="Note..."></textarea>
         </div>
 
         @php
             $colours = App\Models\Note::$noteColours;
         @endphp
+
         <div class="flex justify-evenly overflow-scroll my-2">
             {{-- 
                 required so tailwind will detect the classes
-                bg-white-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
+                bg-slate-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
                 
                 --}}
             @foreach ($colours as $col)

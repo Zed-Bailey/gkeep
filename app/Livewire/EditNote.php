@@ -21,7 +21,7 @@ class EditNote extends Component
     }
     
     public function navigate() {
-        return $this->redirect("/");
+        return redirect('notes');
     }
 
     public function discard() {
