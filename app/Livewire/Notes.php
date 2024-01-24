@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Note;
+use Illuminate\Support\Facades\Auth;
 
 class Notes extends Component
 {
@@ -11,6 +12,7 @@ class Notes extends Component
     public $newNoteTitle = '';
     public $newNoteBody = '';
 
+    
 
     public function mount() {
         $this->selectedColour =  Note::$noteColours[0];
@@ -20,19 +22,22 @@ class Notes extends Component
 
     public function render()
     {
+        $user = Auth::user();
         return view('livewire.notes', [
             'colours' => Note::$noteColours,
-            'userNotes' => Note::all()
+            'userNotes' => $user->notes
         ]);
     }
 
     public function saveClicked() {
+        $user = Auth::user();
+
         $note = new Note;
         $note->title = $this->newNoteTitle;
         $note->body = $this->newNoteBody;
         $note->colour = $this->selectedColour;
 
-        $note->save();
+        $user->notes()->save($note);
 
         $this->newNoteTitle = '';
         $this->newNoteBody = '';
@@ -43,7 +48,7 @@ class Notes extends Component
     }
 
     public function goToEdit($id) {
-        return $this->redirect("/$id", navigate: true);
+        return $this->redirect("/notes/$id", navigate: true);
     }
 
     public function changedColour($newColour) {

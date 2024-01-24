@@ -1,9 +1,6 @@
 
 <div {{$attributes}} class="group relative bg-{{$note->colour}}-200 rounded-md border-2 border-slate-900 min-w-52 max-w-96 h-72 p-2 flex flex-col justify-between hover:shadow-lg hover:cursor-pointer ">
     
-    <button class="hidden group-hover:inline group-hover:absolute top-2 right-2 text-red-400 hover:text-red-500" x-on:click="$dispatch('delete-clicked' )" >
-        <x-phosphor-trash-simple-duotone class="h-6 w-6"/>
-    </button>
 
     <div>
         <h3 class="text-2xl">{{$note->title}}</h3>

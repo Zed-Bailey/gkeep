@@ -38,7 +38,7 @@
         
             @foreach ($userNotes as $note)
             
-                <x-note-card :note="$note" x-on:delete-clicked="$wire.delete({{$note->id}})" x-on:click="$wire.goToEdit({{$note->id}})" />
+                <x-note-card :note="$note" x-on:click="$wire.goToEdit({{$note->id}})" />
 
             @endforeach
 
