@@ -1,4 +1,4 @@
-<div>
+<div class="max-w-4xl mx-auto">
     <div>
         <h2 class="text-3xl">Hi {{ $user->name }}, create a new note?</h2>
         <p class="italic text-slate-500">Today is {{ date('d/m/Y') }}</p>
@@ -15,8 +15,8 @@
                 <div class="flex justify-evenly overflow-scroll mb-2">
                     {{-- 
                         required so tailwind will detect the classes
-                        bg-slate-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg--200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
-                        
+                        bg-slate-200 bg-yellow-200 bg-pink-200 bg-red-200 bg-green-200 bg-blue-200 bg-orange-200 bg-cyan-200 bg-teal-200
+                        bg-slate-300 bg-yellow-300 bg-pink-300 bg-red-300 bg-green-300 bg-blue-300 bg-orange-300 bg-cyan-300 bg-teal-300
                         --}}
                     @foreach ($colours as $col)
                         <button type="button"
@@ -47,7 +47,7 @@
 
         <div class="flex justify-center">
             <div
-                class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center mt-5 w-full max-w-3xl">
+                class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center mt-5 w-full max-w-3xl px-4">
 
                 @foreach ($userNotes as $note)
                     <x-note-card :note="$note" x-on:click="$wire.goToEdit({{ $note->id }})" />

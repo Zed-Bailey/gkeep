@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        "solid-sm" : "2px 3px 0px 0px rgba(16,11,51)",
+        "solid-sm" : "8px 8px 0px 0px rgba(15,23,42)",
       }
     },
   },
