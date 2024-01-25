@@ -4,7 +4,7 @@ A simple Google Keep clone built with PHP and Laravel
 
 Uses Tailwind CSS for styling. Design is responsive and works on mobile/small screen sizes.
 
-I went with a simple, easy design.
+The UI design is simple as it wasn't a focus of this project
 
 ## Functionality
 
