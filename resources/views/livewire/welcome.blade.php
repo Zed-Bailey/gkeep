@@ -1,21 +1,23 @@
-<div class="mt-10">
+<div class="mt-10 px-2">
     
     <div class="flex flex-col mx-20">
         
-            <div class="h-48">
-                <h1 class="text-6xl font-light">A note taking app for</h1>
-                <x-typing-animation/>
+            <div class="h-64 md:h-48">
+                <h1 class="text-6xl font-light">A note taking app for <span class="font-bold md:hidden text-7xl">Ideas</span></h1>
+            
+                <x-typing-animation class="hidden md:block"/>
+                
+                
             </div>
             <div class="flex justify-center gap-5 font-bold mt-10">
                 <a href="/login" class="px-5 py-2 text-2xl bg-yellow-200 rounded-md hover:bg-yellow-400 border-2 border-yellow-400 text-yellow-900">Login</a>
                 <a href="/register" class="px-5 py-2 text-2xl bg-pink-200 rounded-md hover:bg-pink-400 border-2 border-pink-400 text-pink-900">Sign up</a>
-
             </div>
         
     </div>
 
     <section class="flex flex-col items-center justify-center gap-20 mt-20">
-        <div class="flex flex-col md:flex-row md:gap-20">
+        <div class="flex flex-col items-center md:flex-row md:gap-20">
             <div>
                 <h1 class="text-4xl font-semibold">Create a note</h1>
                 <p class="text-xl text-wrap max-w-xl">Unleash your thoughts with ease—craft a note effortlessly with our intuitive note creation feature. Capture ideas, reminders, and inspirations seamlessly, making the art of note-taking as simple as a click.</p>
@@ -36,7 +38,9 @@
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row md:gap-20">
+        <hr class="text-slate-300"/>
+
+        <div class="flex flex-col items-center md:flex-row md:gap-20">
             <div x-data="{colour: 'bg-slate-200'}">
                 @php
                     $colours = App\Models\Note::$noteColours;

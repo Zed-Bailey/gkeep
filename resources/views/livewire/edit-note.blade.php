@@ -17,10 +17,15 @@
         <h1 class="text-3xl my-3">Edit Note</h1>
         <div class="flex flex-col items-center">
             
-            <div class="flex justify-evenly">
-                <label for="tagInput" class="">Tag</label>
-                <input wire:model="tagValue" id="tagInput" placeholder="Tag Name"/>
-                <button wire:click="addTag">+</button>
+            <div class="flex justify-between mb-2 w-full max-w-96 items-end gap-3">
+                <div class="w-full">
+                    <label for="tagInput" class="block text-xs self-start">Add a tag to the note</label>        
+                    <input wire:model="tagValue" id="tagInput" placeholder="Tag Name..." class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
+                </div>
+                
+                <button wire:click="addTag" class="p-2 hover:bg-slate-200 rounded-md">
+                    <x-phosphor-plus-bold class="w-6 h-6"/>
+                </button>
             </div>
 
             <div class="flex-col items-center max-w-96">

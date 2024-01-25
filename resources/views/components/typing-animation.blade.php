@@ -1,5 +1,5 @@
 {{-- https://devdojo.com/tnylea/create-a-typing-effect-in-alpinejs --}}
-<div class="" x-data="{
+<div {{$attributes}} x-data="{
                 text: '',
                 textArray : ['Todo Lists' , 'Study Notes', 'Ideas'],
                 textIndex: 0,

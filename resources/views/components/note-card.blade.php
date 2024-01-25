@@ -1,6 +1,6 @@
 
 <div {{$attributes}} class="bg-{{$note->colour}}-200 rounded-md border-2 border-slate-900 w-full  h-72 p-2 flex flex-col justify-between
-    hover:cursor-pointer hover:-translate-x-1 hover:-translate-y-2 hover:shadow-solid-sm">
+    hover:cursor-pointer hover:-translate-x-1 hover:-translate-y-2 hover:shadow-solid-sm transition-transform duration-150">
     
 
     <div>
