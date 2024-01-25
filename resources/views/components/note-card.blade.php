@@ -15,7 +15,7 @@
                 </span>
             @endforeach
         </div>
-        <p class="text-sm line-clamp-6">
+        <p class="text-sm line-clamp-6 whitespace-pre-line">
             {{$note->body}}
         </p>
     </div>

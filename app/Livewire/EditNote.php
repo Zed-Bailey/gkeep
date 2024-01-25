@@ -47,7 +47,6 @@ class EditNote extends Component
 
 
     public function addTag() {
-        error_log($this->tagValue);
         $tag = new Tag;
         $tag->tagName = $this->tagValue;
 

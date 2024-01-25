@@ -16,16 +16,17 @@ use App\Http\Controllers\Auth\{LoginController, RegisterController, LogoutContro
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::middleware(['guest'])->group(function() {
+    Route::get('/', Welcome::class);
 
-Route::get('/', Welcome::class);
+    Route::get('/register', [RegisterController::class, 'create']);
+    Route::post('/register', [RegisterController::class, 'store']);
+    
+    Route::get('/login', [LoginController::class, 'create'])->name("login");
+    Route::post('/login', [LoginController::class, 'store']);
+    
+});
 
-Route::get('/register', [RegisterController::class, 'create']);
-Route::post('/register', [RegisterController::class, 'store']);
-
-Route::get('/login', [LoginController::class, 'create'])->name("login");
-Route::post('/login', [LoginController::class, 'store']);
-
-// Route::post('/authenticate', [LoginController::class, 'authenticate']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/notes', Notes::class)->name('notes');
