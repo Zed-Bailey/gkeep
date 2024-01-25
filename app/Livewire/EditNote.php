@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Note;
+use App\Models\{Note, Tag};
 
 class EditNote extends Component
 {
@@ -12,6 +12,7 @@ class EditNote extends Component
 
     public $title;
     public $body;
+    public $tagValue = '';
 
     public function mount() {
         $this->id = request()->route('id');
@@ -39,6 +40,19 @@ class EditNote extends Component
         $this->note->save();
 
         return $this->navigate();
+    }
+
+
+    public function addTag() {
+        error_log($this->tagValue);
+        $tag = new Tag;
+        $tag->tagName = $this->tagValue;
+
+        $this->note->tag()->save($tag);
+    }
+
+    public function removeTag(Tag $tag) {
+        $tag->delete();
     }
 
     public function changedColour($colour) {

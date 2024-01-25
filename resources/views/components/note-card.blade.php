@@ -4,7 +4,17 @@
     
 
     <div>
-        <h3 class="text-2xl">{{$note->title}}</h3>
+        <h3 class="text-2xl font-bold">{{$note->title}}</h3>
+        <div class="flex overflow-scroll text-xs items-center align-middle text-slate-600 gap-2">
+            @if($note->tag()->count() > 0)
+                <p class="font-semibold ">Tags:</p>
+            @endif
+            @foreach ($note->tag as $tag)
+                <span class="py-1.5">
+                    {{$tag->tagName}}
+                </span>
+            @endforeach
+        </div>
         <p class="text-sm line-clamp-6">
             {{$note->body}}
         </p>

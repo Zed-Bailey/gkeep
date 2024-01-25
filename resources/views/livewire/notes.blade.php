@@ -35,23 +35,50 @@
     </div>
 
     @if (count($userNotes) > 0)
-        <div>
-            <h2 class="text-3xl">Your Notes</h2>
-            @php
+        <div class="flex justify-between items-center flex-wrap mt-5">
+            <div>
+                <h2 class="text-3xl">Your Notes</h2>
+                @php
 
-                $count = $user->notes()->count();
-                $text = $count > 1 ? 'notes' : 'note';
-            @endphp
-            <span class="text-slate-500">You have {{ $count }} {{ $text }}</span>
+                    $count = $user->notes()->count();
+                    $text = $count > 1 ? 'notes' : 'note';
+                @endphp
+                <span class="text-slate-500">You have {{ $count }} {{ $text }}</span>
+            </div>
+
+            <div>
+                <div class="w-96">
+                    <input type="text"  wire:model.live="filterText" placeholder="Filter by tag" value="{{old('email')}}" id="tagFilter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                </div>
+            </div>
         </div>
 
         <div class="flex justify-center">
-            <div
-                class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center mt-5 w-full max-w-3xl px-4">
+            <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center mt-5 w-full max-w-3xl px-4">
+                @php
+                    $filteredNotes = $user->notes;
+                    if($filterText != '') {
+                        // selects all ids for notes with tags starting with the filter query
+                        $ids = $user->notes()
+                            ->select('notes.id')
+                            ->join('tags', 'note_id', 'notes.id')
+                            ->where('tags.tagName', 'like', $filterText . '%')->get();
 
-                @foreach ($userNotes as $note)
-                    <x-note-card :note="$note" x-on:click="$wire.goToEdit({{ $note->id }})" />
-                @endforeach
+                        $filteredNotes = App\Models\Note::find($ids);
+                    }
+
+                @endphp
+                
+                @if($filteredNotes->count() == 0) 
+                    <div class="col-span-12 flex justify-center">
+                        <p class="text-slate-500 text-xl italic">No notes matched that tag search</p>
+                    </div>
+                @else
+                    @foreach ($filteredNotes as $note)
+                        <x-note-card :note="$note" x-on:click="$wire.goToEdit({{ $note->id }})" />
+                    @endforeach
+                @endif
+                
 
             </div>
         </div>

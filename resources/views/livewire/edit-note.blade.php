@@ -15,11 +15,29 @@
     
     
         <h1 class="text-3xl my-3">Edit Note</h1>
-        <div class="flex justify-center">
+        <div class="flex flex-col items-center">
+            
+            <div class="flex justify-evenly">
+                <label for="tagInput" class="">Tag</label>
+                <input wire:model="tagValue" id="tagInput" placeholder="Tag Name"/>
+                <button wire:click="addTag">+</button>
+            </div>
+
             <div class="flex-col items-center max-w-96">
     
                 <div class="w-96  p-2  bg-{{ $note->colour }}-200 border-2 border-slate-900 rounded-md">
                     <input wire:model="title" placeholder="Title..." class="w-full bg-transparent font-bold text-xl" />
+                    <div class="flex overflow-scroll text-xs items-center align-middle text-slate-600 gap-2">
+                        @if($note->tag()->count() > 0)
+                            <p class="font-semibold ">Tags</p>
+                        @endif
+                        @foreach ($note->tag as $tag)
+                            <span class="inline-flex gap-3 py-1.5 px-2 group hover:cursor-pointer rounded-full hover:bg-black hover:text-white" wire:click="removeTag('{{$tag->id}}')">
+                                {{$tag->tagName}}
+                                <x-phosphor-x class="hidden group-hover:block h-4 w-4"/>
+                            </span>
+                        @endforeach
+                    </div>
                     <textarea class="w-full bg-transparent text-sm h-72 resize-none" wire:model="body" placeholder="your note..."></textarea>
     
                 </div>

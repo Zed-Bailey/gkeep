@@ -12,8 +12,12 @@ class Notes extends Component
     public $newNoteTitle = '';
     public $newNoteBody = '';
 
+
+    public string $filterText = '';
+
     public $user;
     
+
 
     public function mount() {
         $this->selectedColour =  Note::$noteColours[0];
@@ -44,6 +48,8 @@ class Notes extends Component
         $this->newNoteTitle = '';
         $this->newNoteBody = '';
     }
+
+
 
     public function delete(Note $note) {
         $note->delete();
