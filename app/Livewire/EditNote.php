@@ -25,6 +25,9 @@ class EditNote extends Component
         return redirect('notes');
     }
 
+    /**
+     * discard button clicked
+     */
     public function discard() {
         return $this->navigate();
     }

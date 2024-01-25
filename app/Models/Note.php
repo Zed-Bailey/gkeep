@@ -38,4 +38,19 @@ class Note extends Model
     public function tag(): HasMany {
         return $this->hasMany(Tag::class);
     }
+
+    public static function boot() {
+        parent::boot();
+
+        // https://laracasts.com/discuss/channels/laravel/laravel-soft-delete-cascade
+        // handles tag soft deleting
+        // without this will get a foreign key constraint error
+        self::deleting(function (Note $note) {
+
+            foreach ($note->tag as $tag)
+            {
+                $tag->delete();
+            }
+        });
+    }
 }
